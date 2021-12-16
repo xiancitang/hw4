@@ -1,0 +1,21 @@
+<title>WinnerAcknowledge</title>
+<table border="5" align="center">
+  <tr><th style="color:Green;font-size:40px;" class="title">Congratulations!</th></tr>
+  </table>
+  <br>
+  <br>
+<h3 align="center">Your data mean is {{mean}}, standard deviation is {{sd}}
+  <br>
+  Congratulations! you win two movie tickets!</h3>
+  <br>
+  <br>
+<h5 align="center"> Hint: Your information has been successfully saved in our database. </h5>
+<H2 align="center"><strong>All Student IDs are listed below </strong></H2>
+<div align="center" *ngFor="let student of Student">
+  <a [routerLink]="['/studentinfo',student.studentid]">{{student.studentid}}</a>
+ </div>
+ <br>
+ <br>
+ <p>if you want to see most recent added student, click below</p>
+ <button (click)="refresh()">refresh page </button>
+ <router-outlet></router-outlet>

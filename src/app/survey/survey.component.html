@@ -1,0 +1,146 @@
+<head>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+</head>
+
+<h1><strong>{{today}}, {{myname}} </strong></h1> <span> click button if you are not Paul</span>
+<button (click)="changeName()">changeName</button>
+<h1><span class="rectangle">FeedbackForm </span> </h1>
+	<p> Please fill out below form</p>
+
+<!-- Form   -->
+<form #userfeedback ="ngForm" (ngSubmit)="onClickSubmit(userfeedback.value)">
+	<!-- inside Form , personal information section  -->
+	<div class="w3-row w3-border">
+		 <div class="w3-container w3-half">
+		 <p class="form-group required">
+		<label class="control-label">First Name<input autofocus type="text"  size="10"  name="firstName"  [(ngModel)]="studentDetails.firstName" required #firstName="ngModel" pattern=".*[A-Za-z]"></label>
+		<div [hidden]="firstName.valid || firstName.pristine"class="alert alert-danger">invalid first name</div>
+
+		<label class="control-label">Last Name<input  type="text" size="10"  name="lastName"  [(ngModel)]="studentDetails.lastName" required #lastName="ngModel" pattern=".*[a-zA-Z]">
+		<div [hidden]="lastName.valid || lastName.pristine"class="alert alert-danger">invalid last name</div></label>
+
+		<label class="control-label">Student ID<input  type="text" size="10" name="studentid" [(ngModel)]="studentDetails.studentid" required #studentid="ngModel"></label>
+
+		 <p><label>Street address<input type="text"  size="45" id="address" name="address" [(ngModel)]="studentDetails.address"  value="" pattern=".*[a-zA-Z0-9 ]" #address="ngModel"></label><div [hidden]="address.valid || address.pristine"class="alert alert-danger">invalid address</div>
+		
+		<p>	
+			<label>City:<input name="city" type="text"  size="15" value="" [(ngModel)]="studentDetails.city" ></label>
+			<label>State:<input name="state" type="text"  size="15"  value="" [(ngModel)]="studentDetails.state" ></label>
+			<label>Zip Code<input name="zipcode" id="zipcode" type="text"  size="5"  value="" [(ngModel)]="studentDetails.zipcode" ></label></p>
+		</div>
+	
+		<div class="w3-container w3-half">
+		
+		<p class="form-group required">
+		<label>Phone number<input type="tel" placeholder="##########"  name="phone number" value="" [(ngModel)]="studentDetails.phone" ></label>
+		<label class="control-label">Email:<input name="email" type="text"  placeholder="name@domain.com" size="15" value="" [(ngModel)]="studentDetails.email" required #email="ngModel" email="true"></label><div [hidden]="email.valid || email.pristine"class="alert alert-danger">invalid email</div>
+		
+		<p>
+		<label>Date of Survey<input  type="date"   name="Date of Survey" value="" [(ngModel)]="studentDetails.dateofsurvey"></label>
+		<label>URL<input  type="url"  size="35" placeholder="http://www.domain-name.com" value=""></label>
+		</p>	
+		<p>
+		<label>High school graduate year <input id="year" type="text"  size="10" name="year" value="" [(ngModel)]="studentDetails.highschoolyear"></label>
+			<label for="month">High school graduate month
+			<input type="text"  id="month" name="month" placeholder="Select a month" list="months" [(ngModel)]="studentDetails.highschoolmonth"/> 
+			<datalist id="months">
+			<option value="January">
+			<option value="February">
+			<option value="March">
+			<option value="April">
+			<option value="May">
+			<option value="June">
+			<option value="July">
+			<option value="August">
+			<option value="September">
+			<option value="October">
+			<option value="November">
+			<option value="December">
+			</datalist>	
+		</label>
+		</p> 
+			</div>
+	</div>
+		
+	
+	<!--inside Form , Feedback section: likeness , how get to know,recommend) -->
+	<div class="w3-row w3-border">
+		<div class="w3-col w3-container" style="width:35%">
+		 <p>
+		<strong>Things you like most about George Mason University:</strong><br><br>
+		<div  style="max-height: 500px;">
+			<div *ngFor="let check of gmulikes" class="checkbox" ngModelGroup="formCheckbox"  >
+					<label>
+							<input style='margin-left:1em; display:inline-block;' type="checkbox" value="{{check.id}}" name="thingslikegmu" [(ngModel)]="check.selected" CheckboxvalidatorDirective #{{check.id}}="ngModel"/>
+							<span class="text-body"style='margin-left:3em; display:inline-block;'>{{check.label}}</span></label>
+			</div>
+ 		</div>
+		</div>
+
+
+
+		
+		<div class="w3-col  w3-container" style="width:35%">
+		<p>
+		<strong>How did you Hear About George Mason University?</strong><br><br>
+
+		<div  style="max-height: 500px;">
+			<div *ngFor="let way of waysknowgmu;" class="radiobutton" ngModelGroup="formradioButton"  >
+					<label>
+							<input style='margin-left:1em; display:inline-block;' type="radio" [value]="way" name="wayknowgmu" ngModel appRadiobuttonvalidator #wayknowgmu="ngModel"/>
+							<span class="text-body"style='margin-left:3em; display:inline-block;'>{{way}}</span></label>
+			</div>
+ 		</div>
+		<!-- <ng-container *ngFor="let way of waysknowgmu; let isLast = last">
+			<label>
+				{{ way }}: 
+				<input type="radio" name="wayknowgmu" [value]="way" 
+					ngModel required #wayknowgmu="ngModel" appRadiobuttonvalidator/>
+			</label>
+
+			<div *ngIf="isLast" [hidden]="!wayknowgmu.hasError('required')" class="alert alert-danger">
+				Pick radiro button is required
+			</div>
+		</ng-container> -->
+			</div>
+		
+		<div class="w3-col  w3-container" style="width:30%" >
+			<p>
+			<label><strong>Will you recommend Gmu to friends? </strong><br><br>
+			<select name="recommendation" [(ngModel)]="studentDetails.recommend">
+			<option >Very Likely</option>
+			<option >Likely</option>
+			<option >Unlikely</option>
+			</select>
+			</label>
+			</p>
+			</div>
+	</div>
+	
+	<!-- inside form: Comments section-->
+	<div class="w3-container"> 
+	<p><label>Comment:<br/><textarea  name="comments"  style="width:50%" [(ngModel)]="studentDetails.comments">Enter comments here.</textarea></label></p>
+	</div> 
+	
+	
+	<!-- input 10 comma seperated numbers from 1 through 100 ,get average and max-->
+	<div >
+		<p>Please enter 10 numbers between 1 and 100 inclusive in below box</p>
+		<p>Data: <input id="data" name="data" type="text" style="width:50%" required placeholder="#,#,#,#,#,#,#,#,#,#" pattern="^[0-9a-zA-z]+(,[0-9a-zA-z]+){0,9}$" [(ngModel)]="studentDetails.data" #data="ngModel" appDatavalidator ></div>
+	
+	<!-- inside form: submit and reset button  -->
+		 <div class="w3-container"> 
+		 <p>
+		<input id="submit" type="submit"  value="Submit" [disabled]="!userfeedback.form.valid"/>
+		<input type="reset" value="Clear"  id="clear"/>
+		</p>
+		</div> 
+
+	<!-- bottom right GMU logo -->
+	<div>
+		<a href = "https://www2.gmu.edu/">
+		<img id="logo" src="/assets/Images/GMU-Logo-300x300.jpg" alt = "George Mason website" />
+		</a>
+		</div> 
+	</form>
+	

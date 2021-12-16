@@ -1,0 +1,65 @@
+h1 {text-align:center; color:#006633 ; font-weight:bold;}
+.rectangle {border: 5px solid #006633; padding:5px 20px; border-radius:15px; box-shadow: 25px 0px 25px #FFCC33;}
+input {padding: 5px;}
+.form-group.required .control-label:before {content:"*";color:red;}
+body {
+  background-color:#eeeeee;
+}
+input[type=radio] {
+  margin-right: 0
+}
+input[type=checkbox] {
+  margin-right: 0
+}
+#logo {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  display: block;
+  height: 125px;
+  width: 125px;
+  background-image:url('/assets/Images/GMU-Logo-300x300.jpg');
+  background-repeat:no-repeat;
+}
+p { 
+  text-indent: 1em;
+  font-family:arial,sans-serif;}
+
+.ui-widget {
+font-family: Verdana,Arial,sans-serif;
+font-size: .8em;
+}
+
+.ui-widget-content {
+    background: #F9F9F9;
+    border: 1px;
+    color: #222222;
+}
+.ui-dialog {
+    left: 0;
+    outline: 0 none;
+    padding: 0 !important;
+    position: absolute;
+    top: 0;
+}
+
+.ui-dialog .ui-dialog-content {
+background: none repeat scroll 0 0 #b0de78;
+border: 0 none;
+overflow: auto;
+position: relative;
+padding: 0 !important;
+}
+
+.ui-widget-header {
+background: red;
+border: 0;
+color: #fff;
+font-weight: normal;
+}
+
+.ui-dialog .ui-dialog-titlebar {
+  padding: 0.1em .5em;
+  position: relative;
+      font-size: 1em;
+}

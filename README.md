@@ -1,10 +1,35 @@
-# Hw4
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.2.
+# Author, personal project
+Xianci Tang 
 
-## Development server
-
+# how to start up client
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+# Strucutre
+5 compoments: display views
+2 service : calculate mean and standard deviation ; HttpClient API access to server's endponts
+1 directive: use for customized validators , validate checkbox, radio button, datalist
+
+# covered feature from angular
+component, service inject, build in validator(pattern),customized validator for template driven form, routerLink, data binding, event binding, localStorage(prevent data loss during refresh)
+HttpClient,ActivatedRoute,Routes, ngModel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Code scaffolding
 
@@ -22,6 +47,3 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
